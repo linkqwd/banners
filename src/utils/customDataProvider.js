@@ -19,6 +19,7 @@ const convertFileToBase64 = file =>
 const putHandler = (resource, params) => {
     if (resource !== 'bannerPanel') {
         // fallback to the default implementation
+        return dataProvider.update(resource, params);
     }
 
     const newPicture = params.data.newBanner && params.data.newBanner.rawFile instanceof File
@@ -81,5 +82,5 @@ const postHandler = (resource, params) => {
 export const CustomDataProvider = {
     ...dataProvider,
     create: postHandler,
-    // update: putHandler,
+    update: putHandler,
 };

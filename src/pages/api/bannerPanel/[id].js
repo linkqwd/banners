@@ -21,15 +21,15 @@ const bannerPanelId =  async (req, res) => {
             break
         case 'PUT':
             try {
-                const { newBanner, name, description, active, resource, alt, link } = body;
-                //
-                // if (![name, resource, alt, link].every(Boolean)) {
-                //     res.status(400).json({
-                //         success: false,
-                //         reason: 'no documents were created, some fields were not fulfilled',
-                //     })
-                //     return;
-                // }
+                const { newBanner, name, description, active, resource, alt, link, fileLink } = body;
+
+                if (![name, resource, alt, link].every(Boolean)) {
+                    res.status(400).json({
+                        success: false,
+                        reason: 'no documents were created, some fields were not fulfilled',
+                    })
+                    return;
+                }
 
                 let replacedFields = {
                     name,
