@@ -1,4 +1,4 @@
-import { AUTH_API_SERVICE } from 'consts/routesApi';
+import { AUTH_SERVICE_API } from 'consts/routesApi';
 
 
 const auth = async (req, res) => {
@@ -15,7 +15,7 @@ const auth = async (req, res) => {
                     params,
                 }
 
-                const request = new Request(AUTH_API_SERVICE, {
+                const request = new Request(AUTH_SERVICE_API, {
                     method: 'POST',
                     body: JSON.stringify(body),
                 });

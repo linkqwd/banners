@@ -1,7 +1,7 @@
 const FormData = require('form-data');
 
 import { connectToDatabase, getRandomId } from 'utils';
-import { DOCUMENT_SERVICE_UPLOAD_API } from 'consts/routesApi';
+import { DOCUMENT_UPLOAD_SERVICE_API } from 'consts/routesApi';
 
 
 const bannerPanelBase = async (req, res) => {
@@ -49,7 +49,7 @@ const bannerPanelBase = async (req, res) => {
                 const form = new FormData();
                 form.append('file', buff, originalFilename);
 
-                const request = new Request(DOCUMENT_SERVICE_UPLOAD_API, {
+                const request = new Request(DOCUMENT_UPLOAD_SERVICE_API, {
                     method: 'POST',
                     body: form
                 });
@@ -69,7 +69,7 @@ const bannerPanelBase = async (req, res) => {
                             alt,
                             link,
                             author,
-                            fileLink: `${DOCUMENT_SERVICE_UPLOAD_API}/${uid}`,
+                            fileLink: `${DOCUMENT_UPLOAD_SERVICE_API}/${uid}`,
                             publicationDate: new Date().toLocaleDateString(),
                         }
                     );
